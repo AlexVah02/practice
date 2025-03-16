@@ -7,7 +7,10 @@ export function FooterCompany() {
     <div className="flex flex-col gap-2">
       <Typography tag="h5">LOGO</Typography>
       {CONTACTS_ITEMS.map(({ label, href }) => (
-        <Link key={href} className="text-inherit" href={href}>
+        <Link key={href} 
+        className="text-inherit" 
+        href={href}
+        >
           {label}
         </Link>
       ))}

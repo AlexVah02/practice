@@ -1,51 +1,39 @@
+"use client";
+
 import { Container } from '@/shared/ui/wrapppers/container';
 import { Typography } from '@/shared/ui/typography';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Card, CardHeader } from '@nextui-org/card';
 import { Image } from '@nextui-org/image';
-
-const data = [
-  {
-    title: 'Stream the Acme event 1',
-    description: 'What to watch 1',
-    imageUrl: 'https://nextui.org/images/card-example-4.jpeg'
-  },
-  {
-    title: 'Stream the Acme event 2',
-    description: 'What to watch 2',
-    imageUrl: 'https://nextui.org/images/card-example-4.jpeg'
-  },
-  {
-    title: 'Stream the Acme event 3',
-    description: 'What to watch 3',
-    imageUrl: 'https://nextui.org/images/card-example-4.jpeg'
-  },
-  {
-    title: 'Stream the Acme event 4',
-    description: 'What to watch 4',
-    imageUrl: 'https://nextui.org/images/card-example-4.jpeg'
-  },
-  {
-    title: 'Stream the Acme event 5',
-    description: 'What to watch 5',
-    imageUrl: 'https://nextui.org/images/card-example-4.jpeg'
-  },
-
-];
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { services } from '@/shared/constants/services';
 
 export default function Services() {
+const { t } = useTranslation('translation');
+const [isClient, setIsClient] = useState(false);
+
+
+  useEffect(() => {
+      setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <Container flares={true} className="py-24">
       <Typography className="text-center mb-10" tag="h2">
-        Услуги
+      {t(`services.services_label`)}
       </Typography>
       <Swiper
         modules={[Autoplay]}
         speed={1000}
         autoplay={{
           pauseOnMouseEnter: true,
-          delay: 2500,
+          delay: 25500,
           disableOnInteraction: false,
         }}
         spaceBetween={20}
@@ -69,27 +57,31 @@ export default function Services() {
             spaceBetween: 50,
           },
         }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
+       // onSwiper={(swiper) => console.log(swiper)}
       >
-        {data.map((item, index) => (
-          <SwiperSlide key={index}>
-            <Card className="aspect-[12/16]">
-              <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-                <p className="text-tiny text-white/60 uppercase font-bold">
-                  {item.title}
-                </p>
-                <h4 className="text-white font-medium text-large">
-                  {item.description}
-                </h4>
-              </CardHeader>
-              <Image
-                removeWrapper
-                alt="Card background"
-                className="z-0 w-full h-full object-cover"
-                src="https://nextui.org/images/card-example-4.jpeg"
-              />
-            </Card>
+        {services.map((service) => (
+          <SwiperSlide key={service.id}>
+<Card className="aspect-[12/16] flex relative group overflow-hidden">
+  <Image
+    removeWrapper
+    alt="Card background"
+    className="z-0 w-full h-full object-cover dark:filter dark:brightness-75"
+    src={service.image}
+  />
+  <CardHeader className="absolute inset-0 flex flex-col justify-between p-4 bg-gradient-to-b from-black/60 to-transparent">
+    <h4 className="text-lg text-white/90 uppercase font-bold">
+      {t(`services.${service.name}`)}
+    </h4>
+    <div className='rounded-lg p-2'>
+    <p className="text-white/70 font-medium   backdrop-blur-sm text-sm text-balance overflow-hidden line-clamp-3 transition-all duration-300 group-hover:line-clamp-none group-hover:backdrop-blur-sm">
+      {t(`services.${service.descr}`)}
+   </p>
+    </div>
+  </CardHeader>
+</Card>
+
+
           </SwiperSlide>
         ))}
       </Swiper>

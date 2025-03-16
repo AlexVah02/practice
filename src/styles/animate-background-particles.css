@@ -1,4 +1,5 @@
 .particle {
+  display: none;
   position: absolute;
   border-radius: 50%;
 }

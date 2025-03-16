@@ -7,19 +7,33 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Typography } from '@/shared/ui/typography';
 import { Autoplay } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 
 export default function OurTeam() {
+const { t } = useTranslation('translation');
+  
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+      setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <Container flares={true} className="py-24">
       <Typography className="text-center mb-10" tag="h2">
-        Наша команда
+      {t(`our_team.team_label`)}
       </Typography>
       <Swiper
         modules={[Autoplay]}
         speed={1000}
         autoplay={{
           pauseOnMouseEnter: true,
-          delay: 2500,
+          delay: 25500,
           disableOnInteraction: false,
         }}
         spaceBetween={20}
@@ -43,7 +57,7 @@ export default function OurTeam() {
             spaceBetween: 50,
           },
         }}
-        onSlideChange={() => console.log('slide change')}
+        // onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
         {[...Array(10)].map((_, index) => (
@@ -60,9 +74,9 @@ export default function OurTeam() {
               />
               <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
                 <Typography className="text-tiny text-white/80 me-1 text-nowrap overflow-hidden overflow-ellipsis">
-                  Иванов Иван
+                {t(`our_team.team_name`)}
                   <br />
-                  Front-end разработчик
+                  {t(`our_team.team_spec`)}
                 </Typography>
                 <Button
                   className="text-tiny text-white bg-black/20"
@@ -71,7 +85,7 @@ export default function OurTeam() {
                   radius="lg"
                   size="sm"
                 >
-                  Подробнее
+                  {t(`our_team.read_more`)}
                 </Button>
               </CardFooter>
             </Card>

@@ -21,49 +21,50 @@ export const MENU_ITEMS = [
 
 export const CONTACTS_ITEMS = [
   {
-    label: '8 (700) 000-00-00',
-    href: 'tel:+77000000000',
+    label: '+7 (702) 813 18 08',
+    href: 'tel:+77028131808',
   },
   {
-    label: 'support@technicorn.kz',
-    href: 'mailto:support@technicorn.kz',
+    label: ' info@technicorn.kz',
+    href: 'mailto:info@technicorn.kz',
   },
 ] as const;
 
 export const HELP_ITEMS = [
   {
-    label: 'Отзывы',
+    label: 'reviews',
     href: ROUTES.TESTIMONIALS,
   },
   {
-    label: 'FAQ',
+    label: 'faq',
     href: ROUTES.FAQ,
   },
   {
-    label: 'Наша команда',
+    label: 'team',
     href: ROUTES.OUR_TEAM,
   },
-  {
-    label: 'Правовые документы',
-    href: ROUTES.DOCUMENTS,
-  },
+  // {
+  //   label: 'rights_docs',
+  //   href: ROUTES.DOCUMENTS,
+  // },
 ] as const;
 
 export const SOCIAL_ITEMS = [
   {
-    label: 'Instagram',
-    href: ROUTES.HOME,
+    label: 'LinkedIn',
+    href: " https://www.linkedin.com/company/technicornkz/",
+    
   },
-  {
-    label: 'YouTube',
-    href: ROUTES.HOME,
-  },
-  {
-    label: 'VK',
-    href: ROUTES.HOME,
-  },
-  {
-    label: 'Tweeter',
-    href: ROUTES.HOME,
-  },
+  // {
+  //   label: 'YouTube',
+  //   href: ROUTES.HOME,
+  // },
+  // {
+  //   label: 'VK',
+  //   href: "https://vk.com/",
+  // },
+  // {
+  //   label: 'X',
+  //   href: "https://x.com/" ,
+  // },
 ] as const;

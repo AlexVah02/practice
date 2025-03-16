@@ -6,8 +6,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { useRouter } from 'next/router';
 import { Toaster } from '@/shared/ui/toaster';
 import { BaseLayout } from '@/shared/ui/layouts/base-layout';
-import LocalizeProvider from '@/features/providers/localize-provider';
-
+import LocalizeProvider from '@/providers/localize-provider';
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -24,6 +23,5 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       </NextUIProvider>
     </QueryClientProvider>
     </LocalizeProvider>
-  
   );
 }

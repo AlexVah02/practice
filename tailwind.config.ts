@@ -28,7 +28,7 @@ const config: Config = {
         light: {
           layout: {},
           colors: {
-            background: '#fff',
+            background: '#e5e5e5',
             foreground: '#000',
           },
         },

@@ -1,7 +1,7 @@
 import { NavbarContent, NavbarItem, NavbarMenuToggle } from '@nextui-org/react';
 import { ThemeSwitcher } from '@/features/theme/theme-switcher';
 import React from 'react';
-
+import { LanguageSwitcher } from '@/shared/components/language-switcher';
 type Props = {
   isMenuOpen: boolean;
 };
@@ -17,6 +17,11 @@ export function RightNavbarContent({ isMenuOpen }: Props) {
           type="button"
         />
       </NavbarItem>
+      
+      <NavbarItem >
+        <LanguageSwitcher />
+      </NavbarItem>
+
     </NavbarContent>
   );
 }
