@@ -44,7 +44,7 @@ i18n
   .init({
     resources, // Статические переводы
     supportedLngs: ['ru', 'en', 'kk'],
-    fallbackLng: 'ru', // Язык по умолчанию
+    fallbackLng: 'en', // Язык по умолчанию
     debug: false,
     detection: {
       order: ['path', 'cookie', 'localStorage', 'sessionStorage', 'htmlTag'],
